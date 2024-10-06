@@ -1,0 +1,35 @@
+
+ALGORITHM analyze_sentence
+VAR
+    sentence : STRING
+    length : INTEGER
+    word_count : INTEGER
+    vowel_count : INTEGER
+    i : INTEGER
+    vowels : STRING
+BEGIN
+    length ← 0
+    word_count ← 1
+    vowel_count ← 0
+    vowels ← "aeiouAEIOU"
+    
+    FOR i FROM 1 TO LENGTH(sentence) DO
+        length ← length + 1
+        
+        IF sentence[i] = " " THEN
+            word_count ← word_count + 1
+        ENDIF
+        
+        IF sentence[i] IN vowels THEN
+            vowel_count ← vowel_count + 1
+        ENDIF
+        
+        IF sentence[i] = "." THEN
+            EXIT
+        ENDIF
+    ENDFOR
+    
+    OUTPUT "Length of the sentence: ", length
+    OUTPUT "Number of words: ", word_count
+    OUTPUT "Number of vowels: ", vowel_count
+END
